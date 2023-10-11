@@ -8,4 +8,4 @@
 
 ## Authors
 ---
-* This project was designed and hand-crafted with love by **Randy Ejejigbe** -[Randy-VERTO](https://github.com/RandyE-VERTO/simple_shell) and **Victor Chibuike** - [Victorpropython](https://github.com//victorpropython/simple_shell) 
+* This project was designed and hand-crafted with love by **Randy Ejejigbe** -[Randy-VERTO](https://github.com/RandyE-VERiTO/simple_shell) and **Victor Chibuike** - [Victorpropython](https://github.com//victorpropython) 
