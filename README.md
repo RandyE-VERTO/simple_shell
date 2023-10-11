@@ -1,4 +1,4 @@
-#Simple_shell project
+# Simple_shell project
 
 ---
 ## Description
