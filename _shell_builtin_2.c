@@ -27,7 +27,7 @@ int to_exec_commands(char **argv)
 
 	builtins our_builtin[] ={
 		{"exit", to_exit},
-		{"_cd", 88888},
+		{"_cd", for_cd},
 		{"environs", print_environs},
 	};
 	build_size = sizeof(our_builtin) / sizeof(builtins);
