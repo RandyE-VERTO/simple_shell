@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
+int all_argument(__attribute__((unused))int ac, char **av);
+
 int main(void)
 {
 
@@ -11,16 +13,18 @@ int main(void)
 	printf ("%u \n", my_pid);
 	printf("%u \n",my_ppid);
 
-	printf(all_argument(__attribute__(unused)int ac, char **av));
+	char *arg[] = {"arg1","arg2","arg3"};
+	all_argument(sizeof(arg) / sizeof(arg[0]), arg);
 	return (0);
 }
-int all_argument(__attribute__((unused))int ac, char **av)
+
+int all_argument(__attribute__((unused))int argc, char **argv)
 {
 	int i;
 	
-	for (i = 0;av[i] != NULL; i++)
+	for (i = 0; i < argc; i++)
 	{
-		printf("%s\n", av[i]);
+		printf("%s\n", argv[i]);
 	}
 	return (0);
 }
