@@ -15,6 +15,12 @@
 
 #define MAX_INPUT 1024
 
+
+void print_environs(char **args __attribute__((unused)));
+void for_cd(char **args);
+int to_exec_commands(char **argv);
+void to_exit(char **args);
+
 int _putchar(char c);
 
 #endif
