@@ -48,6 +48,12 @@ int our_printf(const char *format, ...);
 void _print_int(va_list h);
 void numToString(int64_t num, int target, char *buff);
 void unsgnednumToString(unit64_t num, int target, char *buff);
+void exec_commd(char **arg, char **argv, int num);
+char *add_to_dir(char *dir, char **argv, char *alpha);
+int _prompt(void);
+char **toks_PATH(char *envVar, char *delim);
+char _getenvirons(const char *nam);
+
 
 void for_cd(char **args);
 void print_environs(char **args __attribute__((unused)));
