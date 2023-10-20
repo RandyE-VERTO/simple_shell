@@ -12,8 +12,8 @@ void _print_int(va_list h)
 	int m;
 
 	m = va_arg(h, int);
-	numtoString(m, DECIMAL, buffer);
-	write(STDOUT_FILENO, &buffer, my_strlen(buffer));
+	numToString(m, DECIMAL, buffer);
+	write(STDOUT_FILENO, &buffer, stnrlen(buffer));
 }
 
 /************************* OUR PRINTF ******************************/
@@ -49,13 +49,13 @@ int our_printf(const char *format, ...)
 				if (format[m + 1] == strngspec[n].ss &&
 						format[m + 1] != '%')
 				{
-					strngspec[j].f(h);
+					strngspec[n].f(h);
 					m++;
 				}
 				n++;
 			}
 			m++;
-			our_putchar_c(format[i]);
+			our_putchar_c(format[m]);
 		}
 		else
 		{
@@ -73,7 +73,7 @@ int our_printf(const char *format, ...)
  * @target: start of the number
  * @buff: for buffer pointer
  */
-void unsgnednumToString(unit64_t num, int target, char *buff)
+void unsgnednumToString(uint64_t num, int target, char *buff)
 {
 	char fil[65];
 	int mor, m = 0, n = 0;
@@ -114,10 +114,10 @@ void unsgnednumToString(unit64_t num, int target, char *buff)
  */
 void numToString(int64_t num, int target, char *buff)
 {
-	if (number < 0)
+	if (num < 0)
 	{
-		buff[0] '-';
+		buff[0] = '-';
 		num *= -1;
 	}
-	unsgnednumToString(num, target,buff);
+	unsgnednumToString(num, target, buff);
 }

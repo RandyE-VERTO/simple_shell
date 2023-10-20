@@ -37,7 +37,7 @@ void exec_commd(char **arg, char **argv, int num)
 	char *comd = NULL;
 	int chr = '/', stat;
 
-	if (exec_builtin_commands(arg) == 0)
+	if (to_exec_commands(arg) == 0)
 	{
 		return;
 	}
@@ -90,7 +90,7 @@ char *add_to_dir(char *dir, char **argv, char *alpha)
 	{
 		return (argv[0]);
 	}
-	stnrcpy(tmp, dir);
+	_strcpy(tmp, dir);
 	stnrcat(tmp, alpha);
 	stnrcat(tmp, argv[0]);
 	return (tmp);

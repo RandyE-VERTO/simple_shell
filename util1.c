@@ -6,7 +6,7 @@
  *
  * Return: A pointer to new environment variable.
  */
-char _getenvirons(const char *nam)
+char *_getenvirons(const char *nam)
 {
 	int size, j = 0;
 
@@ -15,15 +15,15 @@ char _getenvirons(const char *nam)
 		return (NULL);
 	}
 	size = stnrlen(nam);
-	while (__environ[i] != NULL)
+	while (__environ[j] != NULL)
 	{
-		if ( _strncmp(nam, __environ[i], size) == 0)
+		if ( _strncmp(nam, __environ[j], size) == 0)
 		{
 			break;
 			j++;
 		}
 	}
-	return (__environ[i]);
+	return (__environ[j]);
 }
 /***************** to tokenise path ***************************/
 /**
@@ -40,19 +40,19 @@ char **toks_PATH(char *envVar, char *delim)
 	char envVar2[1024];
 	int j = 0;
 
-	stnrcpy(envVar2, envVar);
-	size_substring = count_token(envVar2, delim);
+	_strcpy(envVar2, envVar);
+	size_substring = num_toks(envVar2, delim);
 
 	tok = malloc(sizeof(char *) * size_substring);
 	if (tok == NULL)
 	{
 		perror("Malloc unable to allocate memory\n");
-		exir(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
-	tok = toknise_line(envVar,delim, size_substring);
+	tok = tokenise_line(envVar,delim, size_substring);
 	while(tok[j]) 
 	{
-		tok[i] = tok[i + 1];
+		tok[j] = tok[j + 1];
 		j++;
 	}
 	return (tok);

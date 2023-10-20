@@ -27,7 +27,7 @@ void our_putchar(va_list h)
 	char b;
 
 	b = va_arg(h, int);
-	write(1, &c, 1);
+	write(1, &b, 1);
 }
 /*****************************OUR_PUTCHAR_C *******************************/
 /**
@@ -50,24 +50,10 @@ void free_buff(char **argv)
 {
 	int j = 0;
 
-	while (argv[i])
+	while (argv[j])
 	{
-		free(argv[i]);
-		i++;
+		free(argv[j]);
+		j++;
 	}
 	free(argv);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

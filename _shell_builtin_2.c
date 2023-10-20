@@ -25,17 +25,17 @@ int to_exec_commands(char **argv)
 {
 	int build_size, j;
 
-	builtins our_builtin[] ={
+	builtins builtin[] ={
 		{"exit", to_exit},
 		{"_cd", for_cd},
 		{"environs", print_environs},
 	};
-	build_size = sizeof(our_builtin) / sizeof(builtins);
+	build_size = sizeof(builtin) / sizeof(builtins);
 	for (j = 0; j < build_size; j++)
 	{
-		if(_strcmp(our_builtin[j].command, argv[0]) == 0)
+		if(__strcmp(builtin[j].command, argv[0]) == 0)
 		{
-			our_builtin[j].func(argv);
+			builtin[j].func(argv);
 			return (0);
 		}
 	}

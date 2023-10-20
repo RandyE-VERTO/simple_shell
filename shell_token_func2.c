@@ -25,7 +25,7 @@ void ctrl_c(int signum)
  */
 int print(char *vic, int df)
 {
-	return (write(df, vic, my_strlen(vic)));
+	return (write(df, vic, stnrlen(vic)));
 }
 
 /*************************** TOKENIZATION OF LINE**************************/
@@ -53,7 +53,7 @@ char **tokenise_line(char *buffer, char *delim, int toks_num)
 	toks = strtok(buffer, delim);
 	while (toks)
 	{
-		argv[i] = token;
+		argv[i] = toks;
 		i++;
 		toks = strtok(NULL, delim);
 	}

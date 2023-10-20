@@ -9,14 +9,14 @@ void print_environs(char **args __attribute__((unused)))
 {
 	int j = 0;
 
-	if (our_environ[j] !=NULL)
+	if (__environ[j] !=NULL)
 	{
-		our_printf("%s\n", our_environ[j]);
+		our_printf("%s\n", __environ[j]);
 		j++;
 	}
 }
 
-//***************************** FOR CHANGE OF DIRECTORY ************************
+/***************************** FOR CHANGE OF DIRECTORY ************************/
 
 void for_cd(char **args)
 {

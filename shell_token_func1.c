@@ -11,15 +11,15 @@ char *order_dir(char **ord)
 {
 	int j = 0;
 	size_t input = 0;
-	struct _status stat;
+	struct stat stt;
 	char *orderPath = NULL;
 	char *environsPath = NULL;
 	char *cwd = NULL;
-	char **pathtoks = NULL;
+	char **pathToks = NULL;
 
-	environsPath = _getenvirons("PATH");
-	pathToks = tokenise_PATH(environsPath, DELIM);
-	cwd = _getcwd(NULL, input);
+	environsPath = getenv("PATH");
+	pathToks = toks_PATH(environsPath, DELIM);
+	cwd = getcwd(NULL, input);
 
 	if (cwd == NULL)
 	{
@@ -27,17 +27,17 @@ char *order_dir(char **ord)
 	}
 	while (pathToks[j] != NULL)
 	{
-		chngdir(pathToks[j]);
-		if (_status(ord[0], &stat) == 0)
+		chdir(pathToks[j]);
+		if (stat(ord[0], &stt) == 0)
 		{
-			orderPath = add_to_directory(pathToks[j], ord, "/");
+			orderPath = add_to_dir(pathToks[j], ord, "/");
 			break;
 		}
 		j++;
 	}
-	chngdir(cwd);
+	chdir(cwd);
 	free(pathToks);
-	pathTks = NULL;
+	pathToks = NULL;
 	return (orderPath);
 }
 
@@ -63,30 +63,3 @@ int num_toks(char *buffer, char *delim)
 	}
 	return (toks_num);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
