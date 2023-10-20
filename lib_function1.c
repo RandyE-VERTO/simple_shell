@@ -21,7 +21,7 @@ int stnrlen(const char *u)
 /************************ for string concatenation **********************/
 
 /**
- * stnrcat - appends string to destination string
+ * _strcat - appends string to destination string
  * @dest: pointer to destination string
  * @src: pointer to source string
  * Return: dest string
@@ -43,7 +43,7 @@ char *_strcat(char *dest, char *src)
 }
 /***************************** for string character ************************/
 /**
- * stnrchr - function that finds the character we are seaching
+ * _strchr - function that finds the character we are seaching
  * @str: the string we are using to parse for the character
  * @b: the character we are searching
  * Return: returns the character on success and NULL if it fails
@@ -61,7 +61,7 @@ char *_strchr(char *str, int b)
 }
 /*********************** to print a single character *********************/
 /**
- * _puts - prints a string followed by a new line
+ * our_puts - prints a string followed by a new line
  * @str: pointer variable.
  */
 void our_puts(char *str)

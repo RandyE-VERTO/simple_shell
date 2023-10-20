@@ -1,5 +1,5 @@
-#ifndef SHELL_H
-#define SHELL_iH
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,6 +30,7 @@ typedef struct strngspec
 	void (*f)();
 } ss_t;
 
+int main(int argc __attribute__((unused)) , char **argv);
 extern char **__environ;
 void print_environs(char **args __attribute__((unused)));
 void for_cd(char **args);
@@ -70,15 +71,14 @@ typedef struct builtins
 
 struct flags
 {
-	bool action;
-};
-struct flags flag;
+	bool interactive;
+}; struct flags flag;
 
 /** for library functions ********/
 char *_strdup(char *org);
 void our_puts(char *str);
 char *_strchr(char *str, int b);
-char *stnrcat(char *dest, char *src);
+char *_strcat(char *dest, char *src);
 int stnrlen(const char *u);
 char *_strcpy(char *dest, char *src);
 int _strncmp(const char *str1, const char *str2, size_t m);

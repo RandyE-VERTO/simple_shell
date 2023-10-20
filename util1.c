@@ -17,7 +17,7 @@ char *_getenvirons(const char *nam)
 	size = stnrlen(nam);
 	while (__environ[j] != NULL)
 	{
-		if ( _strncmp(nam, __environ[j], size) == 0)
+		if (_strncmp(nam, __environ[j], size) == 0)
 		{
 			break;
 			j++;
@@ -49,8 +49,8 @@ char **toks_PATH(char *envVar, char *delim)
 		perror("Malloc unable to allocate memory\n");
 		exit(EXIT_FAILURE);
 	}
-	tok = tokenise_line(envVar,delim, size_substring);
-	while(tok[j]) 
+	tok = tokenise_line(envVar, delim, size_substring);
+	while (tok[j])
 	{
 		tok[j] = tok[j + 1];
 		j++;

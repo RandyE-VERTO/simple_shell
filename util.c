@@ -10,13 +10,13 @@ int _prompt(void)
 {
 	if ((isatty(STDIN_FILENO) == 1) && (isatty(STDOUT_FILENO) == 1))
 	{
-		flag.action =1;
+		flag.interactive = 1;
 	}
 	else
 	{
 		return (0);
 	}
-	if (flag.action)
+	if (flag.interactive)
 	{
 		write(STDOUT_FILENO, "$ ", 2);
 	}
@@ -27,7 +27,8 @@ int _prompt(void)
 /**
  * exec_commd - Function use to execute command
  * @arg: Anarray of command
- * @nums: Argument count
+ * @num: Argument count
+ * @argv: Argument vector
  *
  * Return: Always 0.
  */
@@ -68,7 +69,7 @@ void exec_commd(char **arg, char **argv, int num)
 
 /****************** adding to directory ********************************/
 /**
- * add_to_directory - To add '/' and command name to the end of a dir
+ * add_to_dir - To add '/' and command name to the end of a dir
  * @dir: command directory for adding character and command
  * @alpha: character to add
  * @argv: Array ofcammand passed
@@ -77,7 +78,7 @@ void exec_commd(char **arg, char **argv, int num)
  */
 char *add_to_dir(char *dir, char **argv, char *alpha)
 {
-	char *tmp =NULL;
+	char *tmp = NULL;
 	int buf_num;
 
 	buf_num = (stnrlen(dir) + stnrlen(argv[0] + 2));
@@ -91,7 +92,7 @@ char *add_to_dir(char *dir, char **argv, char *alpha)
 		return (argv[0]);
 	}
 	_strcpy(tmp, dir);
-	stnrcat(tmp, alpha);
-	stnrcat(tmp, argv[0]);
+	_strcat(tmp, alpha);
+	_strcat(tmp, argv[0]);
 	return (tmp);
 }

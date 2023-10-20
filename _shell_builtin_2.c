@@ -11,7 +11,7 @@ void to_exit(char **args)
 	exit(0);
 }
 
-/***************************** Execution of Builtin Commands ******************************/
+/***************************** Execution of Builtin Commands *****************/
 
 /**
  * to_exec_commands - Functions toexecute built in commands
@@ -25,7 +25,7 @@ int to_exec_commands(char **argv)
 {
 	int build_size, j;
 
-	builtins builtin[] ={
+	builtins builtin[] = {
 		{"exit", to_exit},
 		{"_cd", for_cd},
 		{"environs", print_environs},
@@ -33,7 +33,7 @@ int to_exec_commands(char **argv)
 	build_size = sizeof(builtin) / sizeof(builtins);
 	for (j = 0; j < build_size; j++)
 	{
-		if(__strcmp(builtin[j].command, argv[0]) == 0)
+		if (__strcmp(builtin[j].command, argv[0]) == 0)
 		{
 			builtin[j].func(argv);
 			return (0);

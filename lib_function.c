@@ -34,7 +34,7 @@ int _strncmp(const char *str1, const char *str2, size_t m)
 }
 /*********************** for string compare 2 ******************************/
 /**
- * _stnrcmp - A function that works exactly like strcmp
+ * __strcmp - A function that works exactly like strcmp
  * @str1: First string
  * @str2: Second string
  * Return: int

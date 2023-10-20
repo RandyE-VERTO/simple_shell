@@ -41,12 +41,12 @@ char *order_dir(char **ord)
 	return (orderPath);
 }
 
-/******************************** The NUMBER TOKENIZATION ************************************/
+/******************************** The NUMBER TOKENIZATION ****************/
 /**
- * num_toks - Use in finding the number of substring in string
+ * num_toks -Use in finding the number of substring in string
  * @buffer: Pointer used for string tokenization
  * @delim: This is the delimiter variable in tokenization
- * REturn: To return the number of substrings found
+ * Return: To return the number of substrings found
  */
 int num_toks(char *buffer, char *delim)
 {
