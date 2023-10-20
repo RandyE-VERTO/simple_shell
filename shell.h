@@ -30,7 +30,7 @@ typedef struct strngspec
 	void (*f)();
 } ss_t;
 
-int main(int argc __attribute__((unused)) , char **argv);
+int main(int argc __attribute__((unused)), char **argv);
 extern char **__environ;
 void print_environs(char **args __attribute__((unused)));
 void for_cd(char **args);
@@ -61,18 +61,28 @@ char *_getenvirons(const char *nam);
 
 
 #define DELIM "\n\t\a\r:"
-
+/**
+ * struct builtins - for builtin tools
+ * @command: for commands
+ * @func: used as pointer variable
+ */
 typedef struct builtins
 {
 	char *command;
 	void (*func)(char **);
 } builtins;
 
+/**
+ * struct flags - use for interaction
+ * @interactive: mode system
+ * Describe: For interaction
+ */
 
 struct flags
 {
 	bool interactive;
-}; struct flags flag;
+};
+struct flags flag;
 
 /** for library functions ********/
 char *_strdup(char *org);
